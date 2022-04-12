@@ -13,7 +13,7 @@
       content="width=device-width, height=device-height, initial-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="assets/img/Logo_MEPS_sticker_icon.png" type="image/x-icon" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -130,12 +130,12 @@
                     <!--Brand--><a class="brand" href="index.html"
                       ><img
                         class="brand-logo-dark"
-                        src="images/logo-default-3-314x70.png"
+                        src="assets/img/Logo_MEPS_vertical.png"
                         alt=""
                         width="157"
                         height="35" /><img
                         class="brand-logo-light"
-                        src="images/logo-inverse-3-314x70.png"
+                        src="assets/img/Logo_MEPS_vertical.png"
                         alt=""
                         width="157"
                         height="35"
@@ -576,7 +576,7 @@
             </div>
             <div class="col-md-2 col-xl-4 d-none d-md-block wow fadeScale">
               <img
-                src="images/index-1-399x407.png"
+                src="../meps/assets/img/produtos/ananas3.png"
                 alt=""
                 width="399"
                 height="407"
@@ -822,57 +822,58 @@
           <div class="row row-lg row-30 row-lg-50">
 
           <?php
-                                        $res_produto = $pdo->prepare("SELECT * FROM produto");
-                                        $res_produto->execute();
-                                        $row_produto = $res_produto->fetch();
-                                        if ($res_produto->rowCount()>0) {
+            $res_produto = $pdo->prepare("SELECT * FROM produto");
+            $res_produto->execute();
+            $row_produto = $res_produto->fetch();
+            
+            if ($res_produto->rowCount()>0) {
 
-                                            for ($i=1; $i<=$res_produto->rowCount(); $i++) {
+                for ($i=1; $i<=$res_produto->rowCount(); $i++) {
 
-                                              $url = './produtos/'.$row_produto['id_produto'].'/1.jpg';
-                                                echo '
-                                                <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInRight">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src='.$url.'
-                      alt='.$row_produto['nome'].'
-                      width="1100"
-                      height="1100"
-                    />
-                  </div>
-                  
-                  <h5 class="product-title">
-                    <a href="single-product.html">'.$row_produto['nome'].'</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price product-price-old">$30.00</div>
-                    <div class="product-price">$23.00</div>
-                  </div> -->
-                </div>
-                <!-- <span class="product-badge product-badge-sale">Sale</span> -->
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>';
-                                                $row_produto = $res_produto->fetch();
-                                            }
-                                        }
-                                    ?>
+                  $url = './produtos/'.$row_produto['id_produto'].'/1.jpg';
+                    echo '
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <!-- Product-->
+                        <article class="product wow fadeInRight">
+                          <div class="product-body">
+                            <div class="product-figure">
+                              <img
+                                src='.$url.'
+                                alt='.$row_produto['nome'].'
+                                width="1100"
+                                height="1100"
+                              />
+                            </div>
+                            
+                            <h5 class="product-title">
+                              <a href="single-product.html">'.$row_produto['nome'].'</a>
+                            </h5>
+                            <!-- <div class="product-price-wrap">
+                              <div class="product-price product-price-old">$30.00</div>
+                              <div class="product-price">$23.00</div>
+                            </div> -->
+                          </div>
+                          <!-- <span class="product-badge product-badge-sale">Sale</span> -->
+                          <div class="product-button-wrap">
+                            <div class="product-button">
+                              <a
+                                class="button button-secondary button-zakaria fl-bigmug-line-search74"
+                                href="single-product.html"
+                              ></a>
+                            </div>
+                            <!-- <div class="product-button">
+                              <a
+                                class="button button-primary button-zakaria fl-bigmug-line-shopping202"
+                                href="#"
+                              ></a>
+                            </div> -->
+                          </div>
+                        </article>
+                      </div>';
+                    $row_produto = $res_produto->fetch();
+                }
+            }
+          ?>
             
           </div>
         </div>
@@ -1752,7 +1753,7 @@
               /></a>
               <h5 class="team-modern-name"><a href="#">Rebecca Martinez</a></h5>
               <p class="team-modern-text">
-                Rebecca is the Founder and CEO of Livedrink
+                Rebecca is the Founder and CEO of MEPS
               </p>
               <ul
                 class="list-inline team-modern-list-social list-social-2 list-inline-sm"
@@ -1776,7 +1777,7 @@
               /></a>
               <h5 class="team-modern-name"><a href="#">Peter McMillan</a></h5>
               <p class="team-modern-text">
-                Peter is the Head of Livedrink’s Supply Chain
+                Peter is the Head of MEPS’s Supply Chain
               </p>
               <ul
                 class="list-inline team-modern-list-social list-social-2 list-inline-sm"
@@ -2141,7 +2142,7 @@
           <div class="container">
             <p class="rights">
               <span>&copy;&nbsp; </span><span class="copyright-year"></span
-              ><span>&nbsp;</span><span>Livedrink</span
+              ><span>&nbsp;</span><span>MEPS</span
               ><span>.&nbsp; All rights reserved.</span><span>&nbsp;</span
               ><a href="privacy-policy.html">Privacy Policy</a><span>.</span>
             </p>
