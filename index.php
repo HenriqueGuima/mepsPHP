@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include("../meps/administracao/php/config.php");
+?>
+
 <!DOCTYPE html>
 <html class="wide wow-animation" lang="en">
   <head>
@@ -813,22 +818,34 @@
       <!-- New Flavors-->
       <section class="section section-xxl bg-default">
         <div class="container">
-          <h2 class="text-transform-capitalize wow fadeScale">New Flavors</h2>
+          <h2 class="text-transform-capitalize wow fadeScale">Os Nossos Produtos</h2>
           <div class="row row-lg row-30 row-lg-50">
-            <div class="col-sm-6 col-md-4 col-lg-3">
+
+          <?php
+                                        $res_produto = $pdo->prepare("SELECT * FROM produto");
+                                        $res_produto->execute();
+                                        $row_produto = $res_produto->fetch();
+                                        if ($res_produto->rowCount()>0) {
+
+                                            for ($i=1; $i<=$res_produto->rowCount(); $i++) {
+
+                                              $url = './produtos/'.$row_produto['id_produto'].'/1.jpg';
+                                                echo '
+                                                <div class="col-sm-6 col-md-4 col-lg-3">
               <!-- Product-->
               <article class="product wow fadeInRight">
                 <div class="product-body">
                   <div class="product-figure">
                     <img
-                      src="images/product-1-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
+                      src='.$url.'
+                      alt='.$row_produto['nome'].'
+                      width="1100"
+                      height="1100"
                     />
                   </div>
+                  
                   <h5 class="product-title">
-                    <a href="single-product.html">Mango</a>
+                    <a href="single-product.html">'.$row_produto['nome'].'</a>
                   </h5>
                   <!-- <div class="product-price-wrap">
                     <div class="product-price product-price-old">$30.00</div>
@@ -851,257 +868,12 @@
                   </div> -->
                 </div>
               </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInRight" data-wow-delay=".1s">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-2-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Strawberry</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price">$13.00</div>
-                  </div> -->
-                </div>
-                <!-- <span class="product-badge product-badge-new">New</span> -->
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInRight" data-wow-delay=".2s">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-3-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Apple</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price">$16.99</div>
-                  </div> -->
-                </div>
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInLeft" data-wow-delay=".3s">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-4-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Guava</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price">$12.00</div>
-                  </div> -->
-                </div>
-                <!-- <span class="product-badge product-badge-new">New</span> -->
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInLeft" data-wow-delay=".2s">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-5-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Grapes</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price">$11.00</div>
-                  </div> -->
-                </div>
-                <!-- <span class="product-badge product-badge-new">New</span> -->
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInLeft" data-wow-delay=".1s">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-6-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Bananas</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price">$15.99</div>
-                  </div> -->
-                </div>
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInRight" data-wow-delay=".3s">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-7-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Carrots</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price product-price-old">$33.00</div>
-                    <div class="product-price">$24.00</div>
-                  </div> -->
-                </div>
-                <!-- <span class="product-badge product-badge-sale">Sale</span> -->
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <!-- Product-->
-              <article class="product wow fadeInLeft">
-                <div class="product-body">
-                  <div class="product-figure">
-                    <img
-                      src="images/product-8-95x175.png"
-                      alt=""
-                      width="95"
-                      height="175"
-                    />
-                  </div>
-                  <h5 class="product-title">
-                    <a href="single-product.html">Orange</a>
-                  </h5>
-                  <!-- <div class="product-price-wrap">
-                    <div class="product-price">$14.99</div>
-                  </div> -->
-                </div>
-                <div class="product-button-wrap">
-                  <div class="product-button">
-                    <a
-                      class="button button-secondary button-zakaria fl-bigmug-line-search74"
-                      href="single-product.html"
-                    ></a>
-                  </div>
-                  <!-- <div class="product-button">
-                    <a
-                      class="button button-primary button-zakaria fl-bigmug-line-shopping202"
-                      href="#"
-                    ></a>
-                  </div> -->
-                </div>
-              </article>
-            </div>
+            </div>';
+                                                $row_produto = $res_produto->fetch();
+                                            }
+                                        }
+                                    ?>
+            
           </div>
         </div>
       </section>
